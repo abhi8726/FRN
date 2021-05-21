@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_ui/registerpage.dart';
+import 'package:login_ui/loginpage.dart';
 
 void main() {
   runApp((MyApp()));
@@ -20,7 +21,11 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.blue,
         fontFamily: 'KGFHAPPY',
       ),
-      home: RegisterPage(),
+      initialRoute: 'loginpage',
+      routes: {
+        'loginpage': (context) => LoginPage(),
+        'registerpage': (context) => RegisterPage()
+      },
     );
   }
 }

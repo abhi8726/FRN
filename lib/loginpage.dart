@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/services.dart';
 
-
-class RegisterPage extends StatefulWidget {
+class LoginPage extends StatefulWidget {
   @override
-  _RegisterPageState createState() => _RegisterPageState();
+  _LoginPageState createState() => _LoginPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'REGISTER',
+          'LOGIN',
           style: GoogleFonts.notoSans(),
         ),
         centerTitle: true,
@@ -49,7 +48,7 @@ class _RegisterPageState extends State<RegisterPage> {
               height: 40,
             ),
             Container(
-              height: 270,
+              height: 200,
               width: 350,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
@@ -58,27 +57,8 @@ class _RegisterPageState extends State<RegisterPage> {
               child: Center(
                 child: Column(
                   children: [
-                    Padding(
-                      padding: EdgeInsets.only(top: 10),
-                      child: Container(
-                        color: Colors.deepOrange[200],
-                        width: 275,
-                        height: 50,
-                        child: TextField(
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: 'Name',
-                            hintText: 'Name',
-                          ),
-                          inputFormatters: [
-                            FilteringTextInputFormatter.allow(
-                                RegExp('[a-zA-Z]'))
-                          ],
-                        ),
-                      ),
-                    ),
                     SizedBox(
-                      height: 15,
+                      height: 30,
                     ),
                     Container(
                       color: Colors.deepOrange[200],
@@ -116,33 +96,15 @@ class _RegisterPageState extends State<RegisterPage> {
                         obscureText: true,
                       ),
                     ),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    Container(
-                      color: Colors.deepOrange[200],
-                      width: 275,
-                      height: 50,
-                      child: TextField(
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: 'Confirm Password',
-                          hintText: 'Confirm Password',
-                        ),
-                        inputFormatters: [
-                          FilteringTextInputFormatter.allow(
-                              RegExp('[a-zA-Z@.1-9]'))
-                        ],
-                        obscureText: true,
-                      ),
-                    ),
                   ],
                 ),
               ),
             ),
             SizedBox(
-              height: 60,
+              height: 100,
             ),
+            // ignore: deprecated_member_use
+
             // ignore: deprecated_member_use
             FlatButton(
               onPressed: () {},
@@ -155,57 +117,35 @@ class _RegisterPageState extends State<RegisterPage> {
                 width: 340,
                 child: Center(
                   child: Text(
-                    'Register As Donor',
-                    style: TextStyle(fontSize: 22),
+                    'Login',
+                    style: TextStyle(fontSize: 25),
                   ),
                 ),
               ),
             ),
             SizedBox(
-              height: 30,
-            ),
-            // ignore: deprecated_member_use
-            FlatButton(
-              onPressed: () {},
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: Colors.red,
-                ),
-                height: 60,
-                width: 340,
-                child: Center(
-                  child: Text(
-                    'Register As Receiver',
-                    style: TextStyle(fontSize: 22),
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 30,
+              height: 70,
             ),
             Center(
               child: Text(
-                'Already have an account ?',
+                "Don't have an account ?",
                 style: TextStyle(fontSize: 18),
               ),
             ),
             SizedBox(
-              height: 10,
+              height: 20,
             ),
             Center(
-              child: GestureDetector(
+              child: InkWell(
                 child: Text(
-                  'Sign In',
+                  'Register',
                   style: TextStyle(
                       color: Colors.blue,
                       fontSize: 20,
                       decoration: TextDecoration.underline),
                 ),
                 onTap: () {
-                  Navigator.pop(context,);
-                  
+                  Navigator.pushNamed(context, 'registerpage');
                 },
               ),
             )
